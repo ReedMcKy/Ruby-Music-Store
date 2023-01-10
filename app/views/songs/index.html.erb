@@ -1,14 +1,35 @@
 <p style="color: green"><%= notice %></p>
 
-<h1>Songs</h1>
+
 
 <div id="songs">
-  <% @songs.each do |song| %>
-    <%= render song %>
-    <p>
-      <%= link_to "Show this song", song %>
-    </p>
-  <% end %>
+  <table class="table table-hover table-striped">
+  <h1>Owned Songs</h1>
+  <br/>
+    <thead class="table-dark ">
+      <tr>
+        <th>Song</th>
+        <th>Album</th>
+        <th>Artist</th>
+        <th>View Song</th>
+        <th>Delete</th>
+      </tr>
+    </thead>
+
+
+    <tbody>
+      <% @songs.each do |song| %>
+        <tr>
+          <td><%= song.song_title %></td>
+          <td><%= song.album_title %></td>
+          <td><%= song.artist_name %></td>
+          <td><%= link_to "Show this song", song, class:"btn btn-dark" %></td>
+          <td><%= link_to "X", song, method: :delete, class: "btn btn-outline-danger" %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
 </div>
 
-<%= link_to "New song", new_song_path %>
+
+<%= link_to "Add song", new_song_path, class:"btn btn-dark" %>

@@ -12,12 +12,12 @@ class SongsTest < ApplicationSystemTestCase
 
   test "should create song" do
     visit songs_url
-    click_on "New song"
+    click_on "Create song"
 
     fill_in "Album title", with: @song.album_title
     fill_in "Artist name", with: @song.artist_name
     fill_in "Song title", with: @song.song_title
-    click_on "Create Song"
+    click_on "Add Song"
 
     assert_text "Song was successfully created"
     click_on "Back"
