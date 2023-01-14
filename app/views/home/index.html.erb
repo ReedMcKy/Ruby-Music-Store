@@ -1,2 +1,26 @@
-<h1>Music Store Home</h1>
+<style>
+  h1{
+    text-align: center;
+  }
+  ul {
+    margin: 0 auto;
+    text-align: center;
+  }
+  li {
+    display: inline-block;
+    vertical-align: top;
+    margin: 4px;
+  }
+</style>
 
+<h1>Top Trending Artists</h1>
+<ul>
+  <% @response.each do |artist| %>
+  <li>
+    <img src=<%= artist["image"][2]["#text"] %>>
+    <% @name = artist["name"] %>
+    <h4><%= @name %></h4>
+    <%= link_to "View Artist", artist_info_display_path(:name => @name)%>
+    <% end %>
+  </li>
+</ul>

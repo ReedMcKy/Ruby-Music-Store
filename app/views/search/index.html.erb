@@ -1,0 +1,15 @@
+<h2>Search for Artist</h2>
+
+<%= form_with(url: search_path, method: "post", local: true) do %>
+  <%= label_tag(:artist, "Enter Artist name:") %>
+  <%= text_field_tag(:artist) %>
+  <%= submit_tag("Search") %>
+<% end %>
+
+<% if @response %>
+  <div>
+    <%= @response.body %>
+  </div>
+<% else %>
+    <p>error</p>
+<% end %>

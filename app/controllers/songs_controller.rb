@@ -1,7 +1,6 @@
 class SongsController < ApplicationController
   before_action :set_song, only: %i[ show edit update destroy ]
-
-  # GET /songs or /songs.json
+  
   def index
     @songs = Song.all
   end
@@ -65,6 +64,6 @@ class SongsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def song_params
-      params.require(:song).permit(:song_title, :album_title, :artist_name)
+      params.require(:song).permit(:song_title, :album_title, :artist_name, :user_id)
     end
 end

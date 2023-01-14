@@ -1,6 +1,15 @@
 source "https://rubygems.org"
 git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
+gem 'faraday'
+
+gem 'httparty', '~> 0.21.0'
+
+gem 'dotenv-rails', groups: [:development, :test]
+
+gem 'rest-client'
+gem 'json'
+
 ruby "2.7.0"
 
 gem 'devise'
