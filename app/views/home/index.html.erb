@@ -15,12 +15,12 @@
 
 <h1>Top Trending Artists</h1>
 <ul>
-  <% @response.each do |artist| %>
+  <% @response.each do |artists| %>
   <li>
-    <img src=<%= artist["image"][2]["#text"] %>>
-    <% @name = artist["name"] %>
-    <h4><%= @name %></h4>
-    <%= link_to "View Artist", artist_info_display_path(:name => @name)%>
+    <%= image_tag('https://api.napster.com/imageserver/v2/artists/'+ artists['id'] + '/images/356x237.jpg') %>
+    <% @name = artists["name"] %>
+    <% @art_id = artists["id"] %>
+    <h1><%= link_to @name, artist_info_display_path(:art_id => @art_id, :name => @name), class:"btn btn-outline-dark" %></h1>
     <% end %>
   </li>
 </ul>

@@ -13,15 +13,13 @@
   }
 </style>
 
-<h1><%= @result%>'s Albums</h1>
+<h1><%= @art_name%>'s Albums</h1>
 <ul>
-  <% @response.each do |album| %>
+  <% @images.zip(@titles).each do |image, title| %>
   <li>
-    <img src=<%= album["image"][2]["#text"] %>>
-    <% @album = album["name"] %>
-    <% @artist = album["artist"]["name"] %>
-    <p><%= @album %></p>
-    <%= link_to "View Album", album_info_display_path(:album => @album, :artist => @artist)%>
+    <%= image_tag(image) %>
+    <% @album = title %>
+    <h1><%= link_to title, album_info_display_path(:album => @album, :artist => @artist), class:"btn btn-outline-dark"%></h1>
     <% end %>
   </li>
 </ul>

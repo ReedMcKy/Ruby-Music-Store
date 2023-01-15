@@ -256,6 +256,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  activerecord (~> 7.0, >= 7.0.4)
   bootsnap
   capybara
   debug
@@ -268,6 +269,7 @@ DEPENDENCIES
   json
   puma (~> 5.0)
   rails (~> 7.0.4)
+  rake (~> 13.0, >= 13.0.6)
   rest-client
   selenium-webdriver
   sprockets-rails

@@ -3,6 +3,10 @@ git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
 gem 'faraday'
 
+gem 'activerecord', '~> 7.0', '>= 7.0.4'
+
+gem 'rake', '~> 13.0', '>= 13.0.6'
+
 gem 'httparty', '~> 0.21.0'
 
 gem 'dotenv-rails', groups: [:development, :test]
