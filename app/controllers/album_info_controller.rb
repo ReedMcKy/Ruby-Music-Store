@@ -1,8 +1,19 @@
 class AlbumInfoController < ApplicationController
   def display
-    @artist_name = params[:artist].gsub(/\s+/, "")
-    @album_name = params[:album].gsub(/\s+/, "")
-    response = HTTParty.get('http://ws.audioscrobbler.com/2.0/?method=album.getinfo'+'&api_key=' + ENV['API_KEY'] + '&artist='+ @artist_name + '&album=' + @album_name + '&format=json')
-    @response = JSON.parse(response.body)
+    @album_id = params[:id]
+    @album = params[:album]
+    @art_name = params[:artist]
+    tracks_arr = []
+
+    tracks = HTTParty.get('http://api.napster.com/v2.2/albums/'+ @album_id +'/tracks?apikey='+ ENV["API_KEY"])
+    if !tracks.nil?
+      tracks = tracks["tracks"]
+      tracks.each do |song|
+          tracks_arr.push(song["name"])
+      end
+    end
+    @response = tracks_arr
+
   end
+  
 end

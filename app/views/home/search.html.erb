@@ -1,0 +1,8 @@
+<%= form_for @art_name do |f| %>
+  <div class="form-group">
+    <%= form.text_field :artist_name, class:"form-control", placeholder:"Artist Name" %>
+  </div>
+  <div>
+    <%= form.submit class:"btn btn-dark" %>
+  </div>
+<% end %>

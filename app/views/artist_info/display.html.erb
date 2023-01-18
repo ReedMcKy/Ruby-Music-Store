@@ -1,10 +1,14 @@
 <style>
   h1{
     text-align: center;
+    margin: 2%;
   }
   ul {
     margin: 0 auto;
     text-align: center;
+    display: inline-block;
+    vertical-align: top;
+    margin: 4px;
   }
   li {
     display: inline-block;
@@ -15,11 +19,16 @@
 
 <h1><%= @art_name%>'s Albums</h1>
 <ul>
-  <% @images.zip(@titles).each do |image, title| %>
+  <% @images.zip(@titles, @album_ids).each do |image, title, id| %>
   <li>
     <%= image_tag(image) %>
     <% @album = title %>
-    <h1><%= link_to title, album_info_display_path(:album => @album, :artist => @artist), class:"btn btn-outline-dark"%></h1>
+    <% @album_id = id %>
+    <h1><%= link_to title, album_info_display_path(:album => @album, :artist => @art_name, :id => @album_id), class:"btn btn-outline-dark"%></h1>
     <% end %>
   </li>
 </ul>
+<br/>
+<h1><%= link_to "Back to Artists", root_path, class:"btn btn-dark btn-lg" %></h1>
+<h1><%= link_to "Back to Search", search_artist_display_path, class:"btn btn-dark btn-lg" %></h1>
+<br/>

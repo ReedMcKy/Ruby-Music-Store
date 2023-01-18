@@ -13,7 +13,6 @@ class ArtistInfoController < ApplicationController
     album_search_id_arr = []
     albums_arr.slice(0,8).each do |title|
       if title.ascii_only? && !title.include?("#")
-        puts 'https://api.napster.com/v2.2/search?apikey=' + ENV['API_KEY'] + '&query=' + title + '&type=album'
         album_search = HTTParty.get('https://api.napster.com/v2.2/search?apikey=' + ENV['API_KEY'] + '&query=' + title + '&type=album')
       end
       if !album_search.nil?
@@ -32,7 +31,8 @@ class ArtistInfoController < ApplicationController
       album_name_arr.push(album_name_search["albums"][0]["name"])
     end
     @images = album_img_arr
-    @titles = album_name_arr 
+    @titles = album_name_arr
+    @album_ids = album_search_id_arr 
 
   end
 end

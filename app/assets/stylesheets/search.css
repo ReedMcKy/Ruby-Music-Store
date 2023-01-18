@@ -1,0 +1,55 @@
+body {
+    font-family: Arial;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+form.search_bar input[type=text] {
+    padding: 10px;
+    font-size: 17px;
+    border: 1px solid grey;
+    float: left;
+    width: 80%;
+    background: #f1f1f1;
+    border-radius: 10px;
+}
+
+form.search_bar .button {
+    float: left;
+    width: 20%;
+    padding: 10px;
+    background: black;
+    color: white;
+    font-size: 17px;
+    border: 1px solid grey;
+    border-left: none;
+    cursor: pointer;
+    border-radius: 10px;
+}
+
+form.search_bar .button:hover {
+    background: #474849;
+}
+
+form.search_bar::after {
+    content: "";
+    clear: both;
+    display: table;
+}
+
+.title {
+    font-family: Helvetica, Arial, sans-serif;
+    font-size: 3.75em;
+    text-align: center;
+}
+
+.search_form {
+    align-content: center;
+}
+
+.show {
+    text-align: center;
+    margin-top: 10em;
+}

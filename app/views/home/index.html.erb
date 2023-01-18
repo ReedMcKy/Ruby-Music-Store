@@ -1,3 +1,4 @@
+<%= stylesheet_link_tag "search.css" %>
 <style>
   h1{
     text-align: center;
@@ -5,6 +6,9 @@
   ul {
     margin: 0 auto;
     text-align: center;
+    display: inline-block;
+    vertical-align: top;
+    margin: 4px;
   }
   li {
     display: inline-block;
@@ -13,7 +17,8 @@
   }
 </style>
 
-<h1>Top Trending Artists</h1>
+<h1 class="title">Top Trending Artists</h1>
+<br/>
 <ul>
   <% @response.each do |artists| %>
   <li>

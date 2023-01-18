@@ -1,0 +1,42 @@
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<%= stylesheet_link_tag "search.css" %>
+<style>
+  h1{
+    text-align: center;
+  }
+  ul {
+    margin: 0 auto;
+    text-align: center;
+    display: inline-block;
+    vertical-align: top;
+    margin: 4px;
+  }
+  li {
+    display: inline-block;
+    vertical-align: top;
+    margin: 4px;
+  }
+</style>
+<h1>Search For an Artist</h1>
+<br/><br/>
+<%= form_tag("/search_artist/display", method: "get", class:"search_bar") do %>
+  <%= text_field_tag(:art_name, @input, placeholder: "Search...") %>
+  <%= submit_tag("Submit", class:"button") %>
+<% end %>
+<br/><br/>
+<ul>
+  <% @response.each do |artists| %>
+  <li>
+    <%image = 'https://api.napster.com/imageserver/v2/artists/'+ artists['id'] + '/images/356x237.jpg' %>
+    
+    <%= image_tag image, 
+      src: 'Image Not Found', 
+      onerror: 'music_logo.jpg"' %>
+    <% @name = artists["name"] %>
+    <% @art_id = artists["id"] %>
+    <h1><%= link_to @name, artist_info_display_path(:art_id => @art_id, :name => @name), class:"btn btn-outline-dark" %></h1>
+    <% end %>
+  </li>
+</ul>
+
